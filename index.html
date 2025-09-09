@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Fashion Lookbook</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <meta name="description" content="A simple fashion lookbook with categories and search.">
+</head>
+<body>
+  <header class="container">
+    <h1>Fashion Lookbook</h1>
+    <div class="controls">
+      <input id="search" placeholder="Search looks or tags..."/>
+      <select id="category">
+        <option value="">All categories</option>
+        <option>Streetwear</option>
+        <option>Formal</option>
+        <option>Casual</option>
+        <option>Runway</option>
+      </select>
+    </div>
+  </header>
+  <main class="container">
+    <div id="grid" class="grid"></div>
+    <button id="loadMore" class="load-more">Load more</button>
+  </main>
+  <footer class="container small">© 2025</footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+  { "title": "Look 1", "image": "images/look1.jpg", "category": "Formal", "tags": ["dark","blazer"] },
+  { "title": "Look 2", "image": "images/look2.jpg", "category": "Streetwear",    "tags": ["bright","blazer"] },
+  { "title": "Look 3", "image": "images/look3.jpg", "category": "Formal",    "tags": ["white","blazer"] },
+  { "title": "Look 4", "image": "images/look4.jpg", "category": "Streetwear",    "tags": ["jacket","sunglasses"] },
+  { "title": "Look 5", "image": "images/look5.jpg", "category": "Casual",    "tags": ["yellow","sweats"] }
+]
