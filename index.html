@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Fashion Lookbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="styles.css"/>
-  <meta name="description" content="A simple fashion lookbook with categories and search.">
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <header class="container">
-    <h1>Fashion Lookbook</h1>
-    <div class="controls">
-      <input id="search" placeholder="Search looks or tags..."/>
-      <select id="category">
-        <option value="">All categories</option>
-        <option>Streetwear</option>
-        <option>Formal</option>
-        <option>Casual</option>
-        <option>Runway</option>
-      </select>
-    </div>
+  <header class="nav">
+    <div class="brand">Fashion Lookbook</div>
+    <nav class="links">
+      <a href="#">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+    </nav>
   </header>
+
   <main class="container">
-    <div id="grid" class="grid"></div>
-    <button id="loadMore" class="load-more">Load more</button>
+    <section id="messages">
+      <div id="empty" class="notice hidden">No looks yet — add images later and they’ll show up here.</div>
+      <div id="error" class="notice error hidden">Couldn’t load data. Try refreshing.</div>
+      <div id="loading" class="notice">Loading looks…</div>
+    </section>
+
+    <section id="gallery" class="grid"></section>
+    <div class="loadmore-wrap">
+      <button id="loadMore" class="btn">Load more</button>
+    </div>
   </main>
-  <footer class="container small">© 2025</footer>
-  <script src="app.js"></script>
+
+  <footer class="footer">© 2025 Briana • Hosted on S3 + CloudFront</footer>
 </body>
 </html>
