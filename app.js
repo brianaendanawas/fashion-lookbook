@@ -4,6 +4,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMsg = document.getElementById("error");
   const loading = document.getElementById("loading");
 
+  const toTop = document.getElementById("toTop");
+  if (toTop) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    }, { passive: true });
+
+    toTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  function showSkeleton(n = 8) {
+    if (!gallery) return;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement("article");
+      s.className = "skel-card";
+      const thumb = document.createElement("div"); thumb.className = "skeleton skel-thumb";
+      const l1 = document.createElement("div"); l1.className = "skeleton skel-line med";
+      const l2 = document.createElement("div"); l2.className = "skeleton skel-line small";
+      s.append(thumb, l1, l2);
+      frag.appendChild(s);
+    }
+    gallery.innerHTML = "";
+    gallery.appendChild(frag);
+  }
+
+  function clearSkeleton() {
+    if (!gallery) return;
+    gallery.innerHTML = "";
+  }
+
+  // show placeholders immediately
+  showSkeleton(8);
+
+
   // While iterating, bypass browser cache for data.json
   fetch("data/data.json", { cache: "no-store" })
     .then(r => {
@@ -105,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch(() => {
+      clearSkeleton();
       if (errorMsg) errorMsg.classList.remove("hidden");
       if (loading) loading.classList.add("hidden");
     });
