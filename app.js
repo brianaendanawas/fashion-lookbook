@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const loadBtn = document.getElementById("loadMore");
+      const sentinel = document.getElementById("sentinel");
 
       let visibleCount = 8;     // start with 8 items
       const PAGE = 8;           // items per “page”
@@ -68,9 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.createElement("img");
         img.className = "thumb";
         img.loading = "lazy";
+        img.decoding = "async"; // <-- add
         img.alt = item.title || "Look";
         img.src = item.image || "images/placeholder.jpg";
         img.onerror = () => { img.src = "images/placeholder.jpg"; };
+
+        // Fade-in hook (add these two lines)
+        img.addEventListener("load", () => img.classList.add("is-loaded"), { once: true });
+        if (img.complete) img.classList.add("is-loaded");
 
         const content = document.createElement("div");
         content.className = "content";
@@ -106,9 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
           if (visibleCount >= total) {
             loadBtn.disabled = true;
             loadBtn.textContent = "All items loaded";
-            // optional: hide the button when fully loaded
             loadBtn.style.display = "none";
             if (io) io.disconnect();
+
+            // Smooth scroll back to top after a brief pause
+            setTimeout(() => {
+              if (toTop) toTop.click();
+              else window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 250);
           } else {
             loadBtn.disabled = false;
             loadBtn.textContent = "Load more";
@@ -128,18 +139,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // Optional: auto-load when the button enters the viewport
-      if (loadBtn && "IntersectionObserver" in window) {
+      let loadingPage = false;
+
+      if ("IntersectionObserver" in window && sentinel) {
         io = new IntersectionObserver((entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting && visibleCount < total) {
-              visibleCount += PAGE;
-              render();
-            }
-          });
+          const hitBottom = entries.some(e => e.isIntersecting);
+          if (!hitBottom) return;
+
+          if (visibleCount < total && !loadingPage) {
+            loadingPage = true;
+            visibleCount = Math.min(visibleCount + PAGE, total);
+            render();
+            // brief delay so layout updates before we allow another load
+            setTimeout(() => { loadingPage = false; }, 150);
+          }
+
+          if (visibleCount >= total) {
+            io.disconnect();
+            // no auto scroll-to-top in infinite-scroll mode
+          }
         }, { rootMargin: "200px" });
-        io.observe(loadBtn);
+        io.observe(sentinel);
       }
+
     })
     .catch(() => {
       clearSkeleton();

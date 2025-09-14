@@ -1,7 +1,22 @@
 [
-  { "title": "Look 1", "image": "images/look1.jpg", "category": "Formal", "tags": ["dark","blazer"] },
-  { "title": "Look 2", "image": "images/look2.jpg", "category": "Streetwear",    "tags": ["bright","blazer"] },
-  { "title": "Look 3", "image": "images/look3.jpg", "category": "Formal",    "tags": ["white","blazer"] },
-  { "title": "Look 4", "image": "images/look4.jpg", "category": "Streetwear",    "tags": ["jacket","sunglasses"] },
-  { "title": "Look 5", "image": "images/look5.jpg", "category": "Casual",    "tags": ["yellow","sweats"] }
+  { "title": "Look 1", "image": "images/look1.jpg", "category": "Streetwear", "tags": ["skirt","buttons"] },
+  { "title": "Look 2", "image": "images/look2.jpg", "category": "Casual",    "tags": ["sweater","jeans"] },
+  { "title": "Look 3", "image": "images/look3.jpg", "category": "Formal",    "tags": ["sweater","jeans"] },
+  { "title": "Look 4", "image": "images/look4.jpg", "category": "Streetwear",    "tags": ["buttons","jeans"] },
+  { "title": "Look 5", "image": "images/look5.jpg", "category": "Outerwear",    "tags": ["skirt","jacket"] },
+  { "title": "Look 6", "image": "images/look6.jpg", "category": "Outerwear", "tags": ["jeans","jacket"] },
+  { "title": "Look 7", "image": "images/look7.jpg", "category": "Outerwear",    "tags": ["jeans","jacket"] },
+  { "title": "Look 8", "image": "images/look8.jpg", "category": "Casual",    "tags": ["buttons","jeans"] },
+  { "title": "Look 9", "image": "images/look9.jpg", "category": "Casual",    "tags": ["jeans","purse"] },
+  { "title": "Look 10", "image": "images/look10.jpg", "category": "Formal",    "tags": ["skirt","sweater"] },
+  { "title": "Look 11", "image": "images/look11.jpg", "category": "Outerwear", "tags": ["jeans","jacket"] },
+  { "title": "Look 12", "image": "images/look12.jpg", "category": "Casual",    "tags": ["skirt","purse"] },
+  { "title": "Look 13", "image": "images/look13.jpg", "category": "Streetwear",    "tags": ["sweater","jeans"] },
+  { "title": "Look 14", "image": "images/look14.jpg", "category": "Formal",    "tags": ["skirt","jacket"] },
+  { "title": "Look 15", "image": "images/look15.jpg", "category": "Casual",    "tags": ["buttons","purse"] },
+  { "title": "Look 16", "image": "images/look16.jpg", "category": "Outerwear", "tags": ["jeans","jacket"] },
+  { "title": "Look 17", "image": "images/look17.jpg", "category": "Casual",    "tags": ["buttons","sweater"] },
+  { "title": "Look 18", "image": "images/look18.jpg", "category": "Streetwear",    "tags": ["jeans","purse"] },
+  { "title": "Look 19", "image": "images/look19.jpg", "category": "Outerwear",    "tags": ["skirt","jacket"] },
+  { "title": "Look 20", "image": "images/look20.jpg", "category": "Streetwear",    "tags": ["sweater","purse"] }
 ]

@@ -75,3 +75,13 @@ html { scroll-behavior: smooth; }
 .skel-line { height: 14px; margin: 12px 16px; border-radius: 8px; }
 .skel-line.med { width: 70%; }
 .skel-line.small { width: 40%; }
+
+/* Fade-in for thumbnails */
+.thumb { opacity: 0; transition: opacity .35s ease; }
+.thumb.is-loaded { opacity: 1; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .thumb { transition: none; }
+}
+
